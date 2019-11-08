@@ -1,6 +1,6 @@
 {
   "name": "@j0nz/vuexcellent",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Autoloader for server provided initial state.",
   "main": "src/index.js",
   "scripts": {
