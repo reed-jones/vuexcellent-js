@@ -10,7 +10,8 @@ const commitData = ({ store, mutator, _state }, { state = {}, modules = {} }) =>
     // Commit 1-level deep module state changes
     Object.entries(modules).forEach(([name, data]) => {
         Object.entries(data.state || {}).forEach(([key, value]) => {
-            const { namespaced = false } = _state.modules[name]
+            const mod = name.split('/').reduce((acc, n) => acc[n] || acc.modules[n], _state.modules)
+            const { namespaced = false } = mod
             store.commit(mutator(key, namespaced && name), value)
         })
     })
