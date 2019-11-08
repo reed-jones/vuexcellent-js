@@ -15,10 +15,12 @@ const isObject = item => item && typeof item === 'object' && !Array.isArray(item
  * @param {...Object} sources
  */
 const recursiveMerge = (target, ...sources) => {
+    // base case
     if (!sources.length) {
         return target;
     }
 
+    // get first source
     const source = sources.shift();
 
     if (isObject(target) && isObject(source)) {
